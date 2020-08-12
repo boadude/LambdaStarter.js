@@ -130,6 +130,6 @@ $RECYCLE.BIN/
 samconfig.toml
 
 # VSCode
-.vscode
+.vscode/launch.json
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows
