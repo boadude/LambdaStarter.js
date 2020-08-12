@@ -28,7 +28,12 @@
     ]
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
     "aws-sdk": "^2.730.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
     "source-map-support": "^0.5.19",
     "winston": "^3.3.3"
   },
