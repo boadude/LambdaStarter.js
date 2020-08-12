@@ -1,14 +1,59 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: CIMAgenda-Lambda
+Description: Boilerplate-Lambdas
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: Boilerplate-Lambdas
+    Description: Lambdas para utilizar en AppSync
+    Author: Miguel Meza
+    SpdxLicenseId: Apache-2.0
+    Labels: ['lambdas']
+    HomePageUrl: https://github.com/CIMAgenda/Boilerplate-Lambdas
+    SourceCodeUrl: https://github.com/CIMAgenda/Boilerplate-Lambdas
+
+Parameters:
+  TableParameterName:
+    Type: String
+    Description: The DynamoDB table for storing X information.
+    Default: 'DynamoDBTable'
+
 Globals:
   Function:
     Runtime: nodejs12.x
-    Timeout: 3
+    MemorySize: 128
+    Timeout: 5
 
 Resources:
-  CIMAgendaStoreFunction:
+  MyLambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
+      Description: >-
+        Description of the Function.
       Handler: app.lambdaHandler
+      Environment:
+        Variables:
+          TABLE_NAME: data-table
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TableParameterName
+
+  CIMAgendaTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: !Ref TableParameterName
+      AttributeDefinitions:
+        - AttributeName: pkey
+          AttributeType: S
+          
+        - AttributeName: skey
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pkey
+          KeyType: HASH
+          
+        - AttributeName: skey
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
