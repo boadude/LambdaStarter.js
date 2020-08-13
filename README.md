@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://codingandfitness.s3.amazonaws.com/images/lambdastarter.png" /><br>
+    <img src="https://codingandfitness.s3.amazonaws.com/images/lambdastarter-v2.png" /><br>
     A Starter Project for AWS Lambdas.
 </p>
 
@@ -23,17 +23,16 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Examples](#examples)
-  - [Querys](#querys)
-    - [Get all Books](#get-all-books)
-    - [Get specific Library](#get-specific-library)
-  - [Mutation](#mutation)
-    - [Create a Library](#create-a-library)
+- [Useful commands](#useful-commands)
 - [Configuration](#configuration)
   - [VSCode extensions](#vscode-extensions)
 - [Folder Structure](#folder-structure)
 - [Roadmap](#roadmap)
 - [License](#license)
+
+# How to use this Starter
+
+- [Commit Standard and Semantic Versioning for any project](https://dev.to/codingandfitness/commit-standard-and-semantic-versioning-for-any-project-1ihc)
 
 # Requirements
 
@@ -70,7 +69,7 @@
     # If you want to simulate an incoming data event
     sam local invoke "CreateBook" --debug-port 5858 --docker-network lambdastarter_default -e src/book/book.event.json
 
-# Usefull commands
+# Useful commands
 
     # Start the project with hotreload
     npm run watch
@@ -131,14 +130,10 @@ The repository use the Domain-Driven File Structure.
 
 # Roadmap
 
-- Using AppSync
-- Event validator
-- Query and Resolvers examples
-- CI/CD with AWS CodePipeline
-
-# Usefull links
-
-- [Commit Standard and Semantic Versioning for any project](https://dev.to/codingandfitness/commit-standard-and-semantic-versioning-for-any-project-1ihc)
+- [ ] How use this starter with AWS AppSync
+- [ ] Event validator for events
+- [ ] Query and Resolvers implementations
+- [ ] CI/CD with AWS CodePipeline
 
 # License
 
