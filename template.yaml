@@ -13,45 +13,52 @@ Metadata:
 
 Parameters:
   TableParameterName:
-    Type: String
-    Description: The DynamoDB table for storing X information.
-    Default: 'DynamoDBTable'
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Description: Required. The DynamoDB table.
+    Default: 'Book'
+  NodeEnvironment:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Description: Required. Stage.
+    Default: 'development'
 
 Globals:
   Function:
     Runtime: nodejs12.x
     MemorySize: 128
     Timeout: 5
+    Environment:
+      Variables:
+        ENV: !Ref NodeEnvironment
 
 Resources:
-  MyLambdaFunction:
+  CreateBook:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
+      CodeUri: src/book/
       Description: >-
         Description of the Function.
-      Handler: app.lambdaHandler
+      Handler: book.createBook
       Environment:
         Variables:
-          TABLE_NAME: data-table
+          TABLE_NAME: !Ref TableParameterName
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref TableParameterName
 
-  CIMAgendaTable:
+  BookTable:
     Type: 'AWS::DynamoDB::Table'
     Properties:
       TableName: !Ref TableParameterName
       AttributeDefinitions:
         - AttributeName: pkey
           AttributeType: S
-          
+
         - AttributeName: skey
           AttributeType: S
       KeySchema:
         - AttributeName: pkey
           KeyType: HASH
-          
+
         - AttributeName: skey
           KeyType: RANGE
       ProvisionedThroughput:
