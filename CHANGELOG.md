@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CIMAgenda/Boilerplate-Lambdas/compare/v1.1.0...v1.2.0) (2020-08-13)
+
+
+### Features
+
+* **dynamodb + parameter store:** se agrega DynamoDB y AWS Parameter Store ([869f88c](https://github.com/CIMAgenda/Boilerplate-Lambdas/commit/869f88c61950e7d769386ecab0008685a07b6a9d))
+
 # [1.1.0](https://github.com/CIMAgenda/Boilerplate-Lambdas/compare/v1.0.0...v1.1.0) (2020-08-12)
 
 
