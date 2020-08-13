@@ -1,15 +1,15 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Boilerplate-Lambdas
+Description: LambdaStarter
 Metadata:
   AWS::ServerlessRepo::Application:
-    Name: Boilerplate-Lambdas
-    Description: Lambdas para utilizar en AppSync
+    Name: LambdaStarter
+    Description: Lambdas Starter
     Author: Miguel Meza
     SpdxLicenseId: Apache-2.0
-    Labels: ['lambdas']
-    HomePageUrl: https://github.com/CIMAgenda/Boilerplate-Lambdas
-    SourceCodeUrl: https://github.com/CIMAgenda/Boilerplate-Lambdas
+    Labels: ['lambda']
+    HomePageUrl: https://github.com/codingandfitness/LambdaStarter.js
+    SourceCodeUrl: https://github.com/codingandfitness/LambdaStarter.js
 
 Parameters:
   TableParameterName:
